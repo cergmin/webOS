@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Windows 10</title>
+    <link rel="stylesheet" href="styles/ui.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+</head>
+<body style="background-image: url('./images/backgrounds/blured.jpg')">
+<div class="explorer">
+    <div class="explorer__item" id="windows_btn">
+        <svg aria-hidden="true" focusable="false" data-icon="windows" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#fff" d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"></path></svg>
+    </div>
+    <div class="explorer__item" id="search_btn">
+        <img src="images/icons/search_64.png">
+    </div>
+    <div class="explorer__apps">
+        <div class="explorer__item">
+            <img src="programs/explorer/explorer_64.png">
+        </div>
+    </div>
+</div>
+<div class="explorer_menu">
+    <div class="explorer_menu__buttons">
+        <div class="explorer_menu__button avatar">
+            <img src="images/icons/user.png">
+        </div>
+        <div class="explorer_menu__button">
+            <img src="images/icons/settings.png">
+        </div>
+        <div class="explorer_menu__button">
+            <img src="images/icons/restart.png">
+        </div>
+    </div>
+    <div class="explorer_menu__apps">
+        <div class="explorer_menu__app cursor_light_horizontal">
+            <img src="programs/word/7.ico">
+            <p>Word</p>
+        </div>
+        <div class="explorer_menu__app cursor_light_horizontal">
+            <img src="programs/powerpoint/7.ico">
+            <p>PowerPoint</p>
+        </div>
+        <div class="explorer_menu__app cursor_light_horizontal">
+            <img src="programs/excel/8.ico">
+            <p>Excel</p>
+        </div>
+    </div>
+    <div class="explorer_menu__plates">
+        <div class="explorer_menu__plate cursor_light">
+            <img src="programs/word/7.ico">
+            <p>Word</p>
+        </div>
+        <div class="explorer_menu__plate cursor_light">
+            <img src="programs/powerpoint/7.ico">
+            <p>PowerPoint</p>
+        </div>
+        <div class="explorer_menu__plate cursor_light">
+            <img src="programs/excel/8.ico">
+            <p>Excel</p>
+        </div>
+        <div class="explorer_menu__plate cursor_light">
+            <img src="programs/word/7.ico">
+            <p>Word</p>
+        </div>
+        <div class="explorer_menu__plate cursor_light">
+            <img src="programs/powerpoint/7.ico">
+            <p>PowerPoint</p>
+        </div>
+    </div>
+</div>
+<div class="explorer_search hidden">
+    <div class="explorer_menu__buttons">
+        <div class="explorer_menu__button avatar">
+            <img src="images/icons/user.png">
+        </div>
+        <div class="explorer_menu__button">
+            <img src="images/icons/settings.png">
+        </div>
+        <div class="explorer_menu__button">
+            <img src="images/icons/restart.png">
+        </div>
+    </div>
+    <div class="explorer_search__box"></div>
+</div>
+<div class="a"></div>
+<!--<script src="scripts/snippets.js"></script>-->
+<script src="scripts/window.js"></script>
+<script>
+    // Initialization
+    $('head').append('<style id="cursor_light_styles"></style>');
+
+
+    $("#windows_btn").on("click", function () {
+        if($(".explorer_search").hasClass('hidden')){
+            $(".explorer_menu").removeClass('search_transformation');
+            $(".explorer_search").removeClass('search_transformation');
+            $(".explorer_menu").toggleClass('hidden');
+        }
+        else{
+            $(".explorer_search").addClass('hidden');
+            $(".explorer_search").addClass('search_transformation');
+
+            $(".explorer_menu").removeClass('hidden');
+            $(".explorer_menu").removeClass('search_transformation');
+        }
+    });
+
+    $("#search_btn").on("click", function () {
+        if($(".explorer_menu").hasClass('hidden')){
+            $(".explorer_menu").removeClass('search_transformation');
+            $(".explorer_search").removeClass('search_transformation');
+            $(".explorer_search").toggleClass('hidden');
+        }
+        else{
+            $(".explorer_menu").addClass('search_transformation');
+            $(".explorer_search").addClass('search_transformation');
+
+            $(".explorer_menu").addClass('hidden');
+            $(".explorer_search").removeClass('hidden');
+        }
+    });
+
+    $(".cursor_light").on("mousemove", function (e) {
+        $("#cursor_light_styles").html('.cursor_light:before{' +
+            'top: ' + (e.pageY - $(this).offset().top - ($(this).width() * 1.65) / 2) + 'px;' +
+            'left: ' + (e.pageX  - $(this).offset().left - ($(this).width() * 1.65) / 2) + 'px;' +
+            'width: ' + ($(this).width() * 1.65) + 'px;' +
+            'height: ' + ($(this).width() * 1.65) + 'px;' +
+            '}');
+    });
+
+    $(".cursor_light_horizontal").on("mousemove", function (e) {
+        $("#cursor_light_styles").html('.cursor_light_horizontal:before{' +
+            'top: ' + (-($(this).width() * 1.25) / 2 + 15) + 'px;' +
+            'left: ' + (e.pageX  - $(this).offset().left - ($(this).width() * 1.25) / 2) + 'px;' +
+            'width: ' + ($(this).width() * 1.25) + 'px;'+
+            'height: ' + ($(this).width() * 1.25) + 'px;'+
+            '}');
+    });
+</script>
+</body>
+</html>
