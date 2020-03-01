@@ -32,13 +32,13 @@ body{
     height: 100%;
     padding: 10px;
     display: inline-block;
-    transition: 40ms ease-out background-color;
+    transition: background-color 40ms ease-out;
     position: relative;
     box-sizing: border-box;
 }
 .explorer__item:hover{
     background-color: rgba(255, 255, 255, 0.11);
-    transition: 0ms ease-out background-color;
+    transition: background-color 0ms ease-out;
 }
 #windows_btn > svg{
     width: 19px;
@@ -78,7 +78,7 @@ body{
     bottom: -1px;
     position: absolute;
     display: block;
-    transition: 0.07s ease-out width, 0.07s ease-out left;
+    transition: width 0.07s ease-out, left 0.07s ease-out;
 }
 .explorer__apps > .explorer__item.launched:hover:before,
 .explorer__apps > .explorer__item.notification:before,
@@ -121,23 +121,11 @@ body{
     -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
     box-sizing: border-box;
-    transition: 0.25s cubic-bezier(0, 0, 0.24, 1.01) bottom,
-                0.1s ease-out opacity,
-                0.1s cubic-bezier(0, 0, 0.24, 1.01) width,
-                0.1s cubic-bezier(0, 0, 0.24, 1.01) padding-right,
-                visibility 0.07s;
-}
-.explorer_menu:before{
-    content: '';
-    background-color: #000;
-    top: 0;
-    right: 0;
-    width: calc(100% - 48px);
-    height: 100%;
-    position: absolute;
-    opacity: 0;
-    display: block;
-    transition: 0.2s ease-out opacity;
+    transition: bottom 0.25s ease,
+                width 0.2s ease,
+                padding-right 0.2s ease,
+                opacity 0.1s ease-out,
+                visibility 0s ease-out 0s;
 }
 .explorer_menu__buttons{
     width: 48px;
@@ -154,7 +142,7 @@ body{
     display: block;
     position: relative;
     margin-top: 0;
-    transition: 0.25s cubic-bezier(0, 0, 0.24, 1.01) margin-top;
+    transition: margin-top 0.25s ease;
 }
 .explorer_menu__button:hover{
     background-color: rgba(255, 255, 255, 0.15);
@@ -178,7 +166,7 @@ body{
     display: block;
     position: relative;
     box-sizing: border-box;
-    transition: 0.05s ease-out opacity;
+    transition: padding-top 0.35s ease;
 }
 .explorer_menu__app{
     width: 100%;
@@ -187,7 +175,7 @@ body{
     box-sizing: border-box;
     position: relative;
     margin-top: 0;
-    transition: 0.25s cubic-bezier(0, 0, 0.24, 1.01) margin-top;
+    transition: margin-top 0.25s ease;
 }
 /*.explorer_menu__app:hover{*/
     /*background-color: rgba(255, 255, 255, 0.03);*/
@@ -224,7 +212,6 @@ body{
     position: relative;
     box-sizing: border-box;
     display: grid;
-    transition: 0.05s ease-out opacity;
 }
 .explorer_menu__plate{
     background-color: hsl(210, 100%, 37%);
@@ -235,7 +222,7 @@ body{
     box-sizing: border-box;
     display: inline-block;
     margin-top: 0;
-    transition: 0.3s cubic-bezier(0, 0, 0.24, 1.01) margin-top;
+    transition: margin-top 0.3s ease;
 }
 .explorer_menu__plate:hover{
     border: 2px solid rgba(255, 255, 255, 0.5);
@@ -260,95 +247,87 @@ body{
     box-sizing: border-box;
 }
 
+.explorer_menu__search{
+    background-color: #000;
+    width: calc(100% - 48px);
+    height: 100%;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    transition: opacity 0.1s ease-out,
+                visibility 0s ease-out 0.1s;
+}
+.explorer_menu__search > .explorer_menu__search_results{
+    width: 100%;
+    height: calc(100% - 40px);
+    position: relative;
+}
+.explorer_menu__search > .explorer_menu__search_field{
+    background-color: #f2f4f6;
+    width: 100%;
+    height: 40px;
+    position: relative;
+}
+.explorer_menu__search > .explorer_menu__search_field > input{
+    background: none;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    font-size: 15px;
+    line-height: 25px;
+    width: 100%;
+    height: 100%;
+}
+.explorer_menu__search > .explorer_menu__search_field > input::placeholder{
+    color: #2b2b2b;
+}
+.explorer_menu.search{
+    width: 832px;
+    padding-right: 184px;
+    transition: bottom 0.2s ease,
+                width 0.2s ease,
+                padding-right 0.2s ease,
+                opacity 0.15s ease-out,
+                visibility 0s ease-out 0s;
+}
+.explorer_menu.search .explorer_menu__search{
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.1s ease-out,
+                visibility 0s ease-out 0s;
+}
+
 .explorer_menu.hidden{
     opacity: 0;
     bottom: -20px;
     visibility: hidden;
+    transition: bottom 0.2s ease,
+                width 0.2s ease,
+                padding-right 0.2s ease,
+                opacity 0.1s ease-out,
+                visibility 0s ease-out 0.1s;
+}
+.explorer_menu.search.hidden{
+    transition: bottom 0.2s ease,
+                opacity 0.1s ease-out,
+                width 0s ease-out 0.2s,
+                padding-right 0s ease-out 0.1s,
+                visibility 0s ease-out 0.1s;
+}
+.explorer_menu.search.hidden .explorer_menu__search{
+    transition: opacity 0s ease-out 0.1s,
+                visibility 0s ease-out 0.1s;
 }
 .explorer_menu.hidden .explorer_menu__button{
     margin-top: 25px;
 }
+.explorer_menu.hidden .explorer_menu__apps{
+    padding-top: 36px;
+}
 .explorer_menu.hidden .explorer_menu__app{
-    margin-top: 25px;
+    margin-top: 10px;
 }
 .explorer_menu.hidden .explorer_menu__plate{
     margin-top: 50px;
-}
-
-.explorer_search{
-    background-color: hsla(210, 80%, 26%, 0.9);
-    width: 832px;
-    height: 640px;
-    max-width: 90vw;
-    max-height: 80vh;
-    left: 0;
-    bottom: 42px;
-    backdrop-filter: blur(20px);
-    z-index: 900;
-    font-size: 0;
-    user-select: none;
-    position: fixed;
-    visibility: visible;
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
-    transition: 0.25s cubic-bezier(0, 0, 0.24, 1.01) bottom,
-    0.1s ease-out opacity,
-    visibility 0.07s;
-}
-.explorer_search > .explorer_menu__buttons{
-    margin-right: 0;
-}
-.explorer_search__box{
-    background-color: #000;
-    width: calc(100% - 48px);
-    height: 100%;
-    padding-top: 16px;
-    float: left;
-    display: block;
-    position: relative;
-    box-sizing: border-box;
-}
-
-.explorer_search.hidden{
-    opacity: 0;
-    bottom: -20px;
-    visibility: hidden;
-}
-.explorer_search.hidden .explorer_menu__button{
-    margin-top: 25px;
-}
-
-
-.explorer_menu.search_transformation{
-    width: 832px;
-    padding-right: 184px;
-    bottom: 42px;
-    transition: 0.1s cubic-bezier(0, 0, 0.24, 1.01) width,
-                0.1s cubic-bezier(0, 0, 0.24, 1.01) padding-right,
-                0.1s ease-out opacity 0.2s,
-                bottom 0.4s,
-                visibility 0.4s;
-}
-.explorer_menu.search_transformation:before{
-    opacity: 1;
-}
-.explorer_menu.search_transformation .explorer_menu__button{
-    margin-top: 0;
-}
-.explorer_menu.search_transformation .explorer_menu__apps{
-    opacity: 0;
-}
-.explorer_menu.search_transformation .explorer_menu__plates{
-    opacity: 0;
-}
-.explorer_search.search_transformation{
-    transition: 0.1s ease-out opacity 0.1s;
-    bottom: 42px;
-    /*opacity: 1;*/
-    visibility: visible;
-}
-.explorer_search.search_transformation .explorer_menu__button{
-    transition: 0s ease-out margin-top;
-    margin-top: 0;
 }

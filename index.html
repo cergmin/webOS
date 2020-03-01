@@ -21,7 +21,7 @@
         </div>
     </div>
 </div>
-<div class="explorer_menu">
+<div class="explorer_menu search">
     <div class="explorer_menu__buttons">
         <div class="explorer_menu__button avatar">
             <img src="images/icons/user.png">
@@ -34,6 +34,54 @@
         </div>
     </div>
     <div class="explorer_menu__apps">
+        <div class="explorer_menu__app cursor_light_horizontal">
+            <img src="programs/word/7.ico">
+            <p>Word</p>
+        </div>
+        <div class="explorer_menu__app cursor_light_horizontal">
+            <img src="programs/powerpoint/7.ico">
+            <p>PowerPoint</p>
+        </div>
+        <div class="explorer_menu__app cursor_light_horizontal">
+            <img src="programs/excel/8.ico">
+            <p>Excel</p>
+        </div>
+        <div class="explorer_menu__app cursor_light_horizontal">
+            <img src="programs/word/7.ico">
+            <p>Word</p>
+        </div>
+        <div class="explorer_menu__app cursor_light_horizontal">
+            <img src="programs/powerpoint/7.ico">
+            <p>PowerPoint</p>
+        </div>
+        <div class="explorer_menu__app cursor_light_horizontal">
+            <img src="programs/excel/8.ico">
+            <p>Excel</p>
+        </div>
+        <div class="explorer_menu__app cursor_light_horizontal">
+            <img src="programs/word/7.ico">
+            <p>Word</p>
+        </div>
+        <div class="explorer_menu__app cursor_light_horizontal">
+            <img src="programs/powerpoint/7.ico">
+            <p>PowerPoint</p>
+        </div>
+        <div class="explorer_menu__app cursor_light_horizontal">
+            <img src="programs/excel/8.ico">
+            <p>Excel</p>
+        </div>
+        <div class="explorer_menu__app cursor_light_horizontal">
+            <img src="programs/word/7.ico">
+            <p>Word</p>
+        </div>
+        <div class="explorer_menu__app cursor_light_horizontal">
+            <img src="programs/powerpoint/7.ico">
+            <p>PowerPoint</p>
+        </div>
+        <div class="explorer_menu__app cursor_light_horizontal">
+            <img src="programs/excel/8.ico">
+            <p>Excel</p>
+        </div>
         <div class="explorer_menu__app cursor_light_horizontal">
             <img src="programs/word/7.ico">
             <p>Word</p>
@@ -69,20 +117,12 @@
             <p>PowerPoint</p>
         </div>
     </div>
-</div>
-<div class="explorer_search hidden">
-    <div class="explorer_menu__buttons">
-        <div class="explorer_menu__button avatar">
-            <img src="images/icons/user.png">
-        </div>
-        <div class="explorer_menu__button">
-            <img src="images/icons/settings.png">
-        </div>
-        <div class="explorer_menu__button">
-            <img src="images/icons/restart.png">
+    <div class="explorer_menu__search">
+        <div class="explorer_menu__search_results"></div>
+        <div class="explorer_menu__search_field">
+            <input type="text" placeholder="Введите здесь текст для поиска">
         </div>
     </div>
-    <div class="explorer_search__box"></div>
 </div>
 <div class="a"></div>
 <!--<script src="scripts/snippets.js"></script>-->
@@ -91,34 +131,33 @@
     // Initialization
     $('head').append('<style id="cursor_light_styles"></style>');
 
-
     $("#windows_btn").on("click", function () {
-        if($(".explorer_search").hasClass('hidden')){
-            $(".explorer_menu").removeClass('search_transformation');
-            $(".explorer_search").removeClass('search_transformation');
-            $(".explorer_menu").toggleClass('hidden');
+        if($(".explorer_menu").hasClass('hidden')){
+            $(".explorer_menu").removeClass('search');
+            $(".explorer_menu").removeClass('hidden');
         }
         else{
-            $(".explorer_search").addClass('hidden');
-            $(".explorer_search").addClass('search_transformation');
-
-            $(".explorer_menu").removeClass('hidden');
-            $(".explorer_menu").removeClass('search_transformation');
+            if($(".explorer_menu").hasClass('search')){
+                $(".explorer_menu").removeClass('search');
+            }
+            else{
+                $(".explorer_menu").addClass('hidden');
+            }
         }
     });
 
     $("#search_btn").on("click", function () {
         if($(".explorer_menu").hasClass('hidden')){
-            $(".explorer_menu").removeClass('search_transformation');
-            $(".explorer_search").removeClass('search_transformation');
-            $(".explorer_search").toggleClass('hidden');
+            $(".explorer_menu").addClass('search');
+            $(".explorer_menu").removeClass('hidden');
         }
         else{
-            $(".explorer_menu").addClass('search_transformation');
-            $(".explorer_search").addClass('search_transformation');
-
-            $(".explorer_menu").addClass('hidden');
-            $(".explorer_search").removeClass('hidden');
+            if($(".explorer_menu").hasClass('search')){
+                $(".explorer_menu").addClass('hidden');
+            }
+            else{
+                $(".explorer_menu").addClass('search');
+            }
         }
     });
 
@@ -130,7 +169,7 @@
             'height: ' + ($(this).width() * 1.65) + 'px;' +
             '}');
     });
-
+    
     $(".cursor_light_horizontal").on("mousemove", function (e) {
         $("#cursor_light_styles").html('.cursor_light_horizontal:before{' +
             'top: ' + (-($(this).width() * 1.25) / 2 + 15) + 'px;' +
