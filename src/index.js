@@ -4,8 +4,14 @@ import { FluentRevealEffect } from "fluent-reveal-effect";
 
 $("#windows_btn").on("click", function () {
     if($(".explorer_menu").hasClass('hidden')){
+        $(".explorer_menu").css("transition", "none");
+        $(".explorer_menu *").css("transition", "none");
         $(".explorer_menu").removeClass('search');
-        $(".explorer_menu").removeClass('hidden');
+        setTimeout(function () {
+            $(".explorer_menu").css("transition", "");
+            $(".explorer_menu *").css("transition", "");
+            $(".explorer_menu").removeClass('hidden');
+        }, 0);
     }
     else{
         if($(".explorer_menu").hasClass('search')){
@@ -19,12 +25,19 @@ $("#windows_btn").on("click", function () {
 
 $("#search_btn").on("click", function () {
     if($(".explorer_menu").hasClass('hidden')){
+        $(".explorer_menu").css("transition", "none");
+        $(".explorer_menu *").css("transition", "none");
         $(".explorer_menu").addClass('search');
-        $(".explorer_menu").removeClass('hidden');
+        setTimeout(function () {
+            $(".explorer_menu").css("transition", "");
+            $(".explorer_menu *").css("transition", "");
+            $(".explorer_menu").removeClass('hidden');
+        }, 0);
     }
     else{
         if($(".explorer_menu").hasClass('search')){
             $(".explorer_menu").addClass('hidden');
+            // $(".explorer_menu").css("transition", "none");
         }
         else{
             $(".explorer_menu").addClass('search');
