@@ -1,0 +1,30 @@
+{
+  "name": "webos",
+  "version": "1.0.0",
+  "description": "Windows 10 in browser",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cergmin/webOS.git"
+  },
+  "author": "cergmin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cergmin/webOS/issues"
+  },
+  "homepage": "https://github.com/cergmin/webOS#readme",
+  "dependencies": {
+    "fluent-reveal-effect": "^1.1.1",
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {
+    "path": "^0.12.7",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}

@@ -144,8 +144,17 @@ body{
     margin-top: 0;
     transition: margin-top 0.25s ease;
 }
-.explorer_menu__button:hover{
-    background-color: rgba(255, 255, 255, 0.15);
+.explorer_menu__button > .explorer_menu__button_border{
+    width: 100%;
+    height: 1px;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+.explorer_menu__button > .explorer_menu__button_border.button_border_right{
+    width: 1px;
+    height: 100%;
+    left: calc(100% - 1px);
 }
 .explorer_menu__button > img{
     width: 100%;
@@ -168,29 +177,57 @@ body{
     box-sizing: border-box;
     transition: padding-top 0.35s ease;
 }
+.explorer_menu__apps > .explorer_menu__app_border{
+    width: 100%;
+    height: 1px;
+    top: 0;
+    left: 0;
+    position: relative;
+}
 .explorer_menu__app{
     width: 100%;
     height: 36px;
-    padding: 2px 2px;
     box-sizing: border-box;
     position: relative;
     margin-top: 0;
+    padding: 3px;
     transition: margin-top 0.25s ease;
 }
-/*.explorer_menu__app:hover{*/
-    /*background-color: rgba(255, 255, 255, 0.03);*/
-/*}*/
+.explorer_menu__app > .explorer_menu__app_border{
+    width: 100%;
+    height: 1px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: none;
+}
+.explorer_menu__app > .explorer_menu__app_border.app_border_bottom{
+    top: auto;
+    bottom: 0;
+}
+.explorer_menu__app > .explorer_menu__app_border.app_border_left{
+    width: 1px;
+    height: 100%;
+}
+.explorer_menu__app > .explorer_menu__app_border.app_border_right{
+    width: 1px;
+    height: 100%;
+    left: calc(100% - 1px);
+}
+.explorer_menu__app:hover > .explorer_menu__app_border{
+    display: block;
+}
 .explorer_menu__app > img{
     background-color: hsl(210, 100%, 37%);
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 100%;
     padding: 6px;
     box-sizing: border-box;
     position: relative;
 }
 .explorer_menu__app > p{
-    width: calc(100% - 32px);
-    height: 32px;
+    width: calc(100% - 36px);
+    height: 100%;
     box-sizing: border-box;
     font-size: 12px;
     font-family: Segoe UI, sans-serif;
@@ -213,19 +250,29 @@ body{
     box-sizing: border-box;
     display: grid;
 }
-.explorer_menu__plate{
+.explorer_menu__plate_border{
     background-color: hsl(210, 100%, 37%);
     width: 100px;
     height: 100px;
     position: relative;
-    border: 2px solid rgba(255, 255, 255, 0);
+    /*border: 2px solid rgba(255, 255, 255, 0);*/
+    padding: 2px;
     box-sizing: border-box;
     display: inline-block;
     margin-top: 0;
     transition: margin-top 0.3s ease;
 }
-.explorer_menu__plate:hover{
-    border: 2px solid rgba(255, 255, 255, 0.5);
+.explorer_menu__plate{
+    background-color: hsl(210, 100%, 37%);
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.explorer_menu__plate_border:hover{
+    background-color: hsl(210, 100%, 75%);
+}
+.explorer_menu__plate_border:active{
+    background: none !important;
 }
 .explorer_menu__plate > img{
     width: 100%;
@@ -328,6 +375,6 @@ body{
 .explorer_menu.hidden .explorer_menu__app{
     margin-top: 10px;
 }
-.explorer_menu.hidden .explorer_menu__plate{
+.explorer_menu.hidden .explorer_menu__plate_border{
     margin-top: 50px;
 }
