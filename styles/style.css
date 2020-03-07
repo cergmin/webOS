@@ -9,11 +9,6 @@ body{
     background-size: cover;
     background-position: center;
 }
-.a{
-    background-color: #fff;
-    width: 300px;
-    height: 300px;
-}
 .explorer{
     background-color: hsla(210, 70%, 15%, 0.85);
     width: 100vw;
@@ -39,6 +34,9 @@ body{
 .explorer__item:hover{
     background-color: rgba(255, 255, 255, 0.11);
     transition: background-color 0ms ease-out;
+}
+.explorer__item.selected{
+    background-color: rgba(255, 255, 255, 0.21);
 }
 #windows_btn > svg{
     width: 19px;
@@ -110,6 +108,7 @@ body{
     max-height: 80vh;
     left: 0;
     bottom: 42px;
+    transform: translateY(0);
     padding-right: 0;
     backdrop-filter: blur(20px);
     z-index: 900;
@@ -121,11 +120,12 @@ body{
     -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
     box-sizing: border-box;
-    transition: bottom 0.25s ease,
+    transition: transform 0.25s ease,
                 width 0.2s ease,
                 padding-right 0.2s ease,
                 opacity 0.1s ease-out,
-                visibility 0s ease-out 0s;
+                visibility 0s ease-out 0s,
+                background-color 0.15s ease-out;
 }
 .explorer_menu__buttons{
     width: 48px;
@@ -141,8 +141,8 @@ body{
     top: calc(100% - 48px * 3);
     display: block;
     position: relative;
-    margin-top: 0;
-    transition: margin-top 0.25s ease;
+    transform: translateY(0);
+    transition: transform 0.25s ease;
 }
 .explorer_menu__button > .explorer_menu__button_border{
     width: 100%;
@@ -171,11 +171,12 @@ body{
     height: 100%;
     margin-right: 16px;
     padding-top: 16px;
+    transform: translateY(0);
     float: left;
     display: block;
     position: relative;
     box-sizing: border-box;
-    transition: padding-top 0.35s ease;
+    transition: transform 0.35s ease;
 }
 .explorer_menu__apps > .explorer_menu__app_border{
     width: 100%;
@@ -189,9 +190,13 @@ body{
     height: 36px;
     box-sizing: border-box;
     position: relative;
-    margin-top: 0;
+    transform: translateY(0);
     padding: 3px;
-    transition: margin-top 0.25s ease;
+    transition: transform 0.25s ease;
+}
+.explorer_menu__app:active{
+    transform: scale(0.97);
+    transition: transform 0.1s ease;
 }
 .explorer_menu__app > .explorer_menu__app_border{
     width: 100%;
@@ -259,8 +264,8 @@ body{
     padding: 2px;
     box-sizing: border-box;
     display: inline-block;
-    margin-top: 0;
-    transition: margin-top 0.3s ease;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
 }
 .explorer_menu__plate{
     background-color: hsl(210, 100%, 37%);
@@ -285,6 +290,7 @@ body{
     color: #fff;
     height: 32px;
     bottom: 0;
+    transform: translateY(0);
     left: 0;
     padding: 6px;
     line-height: 31px;
@@ -330,13 +336,15 @@ body{
     color: #2b2b2b;
 }
 .explorer_menu.search{
+    background-color: hsla(210, 80%, 18%, 0.9);
     width: 832px;
     padding-right: 184px;
-    transition: bottom 0.2s ease,
+    transition: transform 0.2s ease,
                 width 0.2s ease,
                 padding-right 0.2s ease,
                 opacity 0.15s ease-out,
-                visibility 0s ease-out 0s;
+                visibility 0s ease-out 0s,
+                background-color 0.15s ease-out;
 }
 .explorer_menu.search .explorer_menu__search{
     opacity: 1;
@@ -347,16 +355,16 @@ body{
 
 .explorer_menu.hidden{
     opacity: 0;
-    bottom: -20px;
+    transform: translateY(20px);
     visibility: hidden;
-    transition: bottom 0.2s ease,
+    transition: transform 0.2s ease,
                 width 0.2s ease,
                 padding-right 0.2s ease,
                 opacity 0.1s ease-out,
                 visibility 0s ease-out 0.1s;
 }
 .explorer_menu.search.hidden{
-    transition: bottom 0.2s ease,
+    transition: transform 0.2s ease,
                 opacity 0.1s ease-out,
                 width 0s ease-out 0.2s,
                 padding-right 0s ease-out 0.1s,
@@ -367,14 +375,14 @@ body{
                 visibility 0s ease-out 0.1s;
 }
 .explorer_menu.hidden .explorer_menu__button{
-    margin-top: 25px;
+    transform: translateY(25px);
 }
 .explorer_menu.hidden .explorer_menu__apps{
-    padding-top: 36px;
+    transform: translateY(20px);
 }
 .explorer_menu.hidden .explorer_menu__app{
-    margin-top: 10px;
+    transform: translateY(10px);
 }
 .explorer_menu.hidden .explorer_menu__plate_border{
-    margin-top: 50px;
+    transform: translateY(50px);
 }
