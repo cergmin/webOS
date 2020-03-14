@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.explorer{
+    background-color: #191919;
+    font-family: Segoe UI, sans-serif;
+    width: 100%;
+    height: 100%;
+}
+.explorer__top{
+    width: 100%;
+    height: 30px;
+    position: relative;
+}
+.explorer__top__icon{
+    width: 14px;
+    height: 14px;
+    padding: 8px;
+    font-size: 0;
+    display: inline-block;
+    position: relative;
+}
+.explorer__top__input{
+    background-color: #0000;
+    border: 1px solid #535353;
+    width: calc(100% - 110px);
+    height: 20px;
+    /*margin: 10px;*/
+    bottom: 4px;
+    display: inline-block;
+    position: relative;
+}
+.explorer__input__field{
+    background-color: #0000;
+    color: #fff;
+    padding: 11px 6px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    top: 0;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+    box-sizing: border-box;
+}
+.explorer__input__field:focus{
+    opacity: 1;
+}
+.explorer__input__path{
+    width: auto;
+    height: 100%;
+    top: 0;
+    left: 0;
+    user-select: none;
+    font-size: 0;
+    position: absolute;
+}
+.explorer__input__field:focus + .explorer__input__path{
+    opacity: 0;
+}
+.path_item{
+    color: #fff;
+    padding: 2px 4px;
+    font-size: 13px;
+    display: inline-block;
+    box-sizing: border-box;
+    bottom: 2px;
+    position: relative;
+    cursor: default;
+}
+.explorer__main{
+    width: 100%;
+    height: calc(100% - 30px);
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 1fr;
+    display: grid;
+    position: relative;
+}
+.explorer__files{
+    background-color: #202020;
+    width: 100%;
+    height: 100%;
+    border-left: 1px solid #2b2b2b;
+    float: right;
+    display: block;
+    box-sizing: border-box;
+}

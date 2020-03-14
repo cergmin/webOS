@@ -1,0 +1,44 @@
+<head>
+    <link rel="stylesheet" href="styles/style_black.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<div class="explorer">
+    <div class="explorer__top">
+        <img class="explorer__top__icon" src="images/left_arrow_white.png">
+        <img class="explorer__top__icon" src="images/right_arrow_white.png">
+        <img class="explorer__top__icon" src="images/up_arrow_white.png">
+        <div class="explorer__top__input">
+            <input class="explorer__input__field"
+                   spellcheck="false"
+                   autocomplete="false"
+                   value="C:\OSPanel\domains">
+            <div class="explorer__input__path">
+                <div class="path_item">Этот компьютер</div>
+                <div class="path_item">Локальный диск (C:)</div>
+                <div class="path_item">OSPanel</div>
+                <div class="path_item">domains</div>
+            </div>
+        </div>
+    </div>
+    <div class="explorer__main">
+        <div class="explorer__left_menu">
+
+        </div>
+        <div class="explorer__files">
+
+        </div>
+    </div>
+</div>
+<script>
+    $(".explorer__input__field").on('change', function () {
+        $(this).val($(this).val().split('/').join('\\'));
+       let path = $(this).val().split('\\');
+       $(".explorer__input__path").html('');
+       console.log(path);
+       path.forEach(function (a) {
+           $(".explorer__input__path").append('<div class="path_item">' + a + '</div>');
+       });
+    });
+</script>
+</body>

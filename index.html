@@ -5,7 +5,7 @@
     <title>Windows 10</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
-<body style="background-image: url('./images/backgrounds/blured.jpg')">
+<body style="background-image: url('./images/backgrounds/original.jpg')">
 <div class="explorer">
     <div class="explorer__item" id="windows_btn">
         <svg aria-hidden="true" focusable="false" data-icon="windows" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#fff" d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"></path></svg>
@@ -15,11 +15,11 @@
     </div>
     <div class="explorer__apps">
         <div class="explorer__item launched">
-            <img src="programs/explorer/explorer_64.png">
+            <img src="programs/explorer/icon.png">
         </div>
     </div>
 </div>
-<div class="explorer_menu">
+<div class="explorer_menu hidden">
     <div class="explorer_menu__buttons">
         <div class="explorer_menu__button avatar">
             <img src="images/icons/user.png">
@@ -45,7 +45,7 @@
             <p>Excl</p>
         </div>
         <div class="explorer_menu__app">
-            <img src="programs/explorer/explorer_64.png">
+            <img src="programs/explorer/icon.png">
             <p>Проводник</p>
         </div>
         <div class="explorer_menu__app">
@@ -65,7 +65,7 @@
             <p>Excl</p>
         </div>
         <div class="explorer_menu__app">
-            <img src="programs/explorer/explorer_64.png">
+            <img src="programs/explorer/icon.png">
             <p>Проводник</p>
         </div>
         <div class="explorer_menu__app">
@@ -85,7 +85,7 @@
             <p>Excl</p>
         </div>
         <div class="explorer_menu__app">
-            <img src="programs/explorer/explorer_64.png">
+            <img src="programs/explorer/icon.png">
             <p>Проводник</p>
         </div>
     </div>
@@ -127,6 +127,21 @@
             <input id="windows_search_field" type="text" placeholder="Введите здесь текст для поиска">
         </div>
     </div>
+</div>
+<div class="app" pid="1" style="transform: translate(160px, 79px);">
+    <div class="app__top">
+        <div class="app__top__title">Проводник</div>
+    </div>
+    <iframe src="./programs/explorer/index.html" class="app__main"></iframe>
+    <div class="app__resize" action="resize_top"></div>
+    <div class="app__resize" action="resize_left"></div>
+    <div class="app__resize" action="resize_bottom"></div>
+    <div class="app__resize" action="resize_right"></div>
+
+    <div class="app__resize" action="resize_top_left"></div>
+    <div class="app__resize" action="resize_bottom_left"></div>
+    <div class="app__resize" action="resize_bottom_right"></div>
+    <div class="app__resize" action="resize_top_right"></div>
 </div>
 <script src="dist/main.js"></script>
 </body>

@@ -15,4 +15,4 @@ There are 2 commands:
 
 
 ## Demo: https://cergmin.github.io/webOS/
-![webOS](https://i.imgur.com/dRuwAlL.png)
+![webOS](https://i.imgur.com/BnbGsog.png)

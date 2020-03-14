@@ -1,0 +1,31 @@
+{
+  "name_ru": "Проводник",
+  "name_en": "Explorer",
+  "name": "explorer",
+  "icon": "icon.png",
+  "resources": {
+	  "images": {
+		"dark": {
+			"arrow": "images/left_arrow_white.png",
+			"search": "images/search_white.png",
+			"settings": "images/settings_white.png"
+		},
+		"light": {
+			"arrow": "images/left_arrow_black.png",
+			"search": "images/search_black.png",
+			"settings": "images/settings_black.png"
+		}
+	  },
+	  "styles": {
+		"dark": "styles/style_black.css",
+		"light": "styles/style_white.css"
+	  },
+	  "scripts": {
+		"main": "scripts/main.js"
+	  },
+	  "api": [
+		"file_access",
+		"database"
+	  ]
+  }
+}
