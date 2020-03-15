@@ -1,6 +1,30 @@
 import $ from "jquery";
 import { FluentRevealEffect } from "fluent-reveal-effect";
 
+function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+    } else {
+        document.exitFullscreen();
+    }
+}
+
+$(document).on("fullscreenchange", function () {
+    if (document.fullscreenElement) {
+        $("#fullscreen_btn > #fullscreen_icon").hide();
+        $("#fullscreen_btn > #fullscreen_exit_icon").show();
+    } else {
+        $("#fullscreen_btn > #fullscreen_icon").show();
+        $("#fullscreen_btn > #fullscreen_exit_icon").hide();
+    }
+});
+$("#fullscreen_btn").on("click", toggleFullscreen);
+$(document).on("keydown", function (e) {
+   if(e.keyCode === 122){
+       toggleFullscreen();
+       e.preventDefault();
+   }
+});
 
 let app_data_changing = {
     "pid": -1,
