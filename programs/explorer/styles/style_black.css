@@ -2,6 +2,19 @@
     margin: 0;
     padding: 0;
 }
+::-webkit-scrollbar {
+    width: 16px;
+}
+::-webkit-scrollbar-track {
+    background-color: #171717;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #4d4d4d;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
 .explorer{
     background-color: #191919;
     font-family: Segoe UI, sans-serif;
@@ -82,8 +95,53 @@
     background-color: #202020;
     width: 100%;
     height: 100%;
+    overflow-x: auto;
     border-left: 1px solid #2b2b2b;
     float: right;
-    display: block;
     box-sizing: border-box;
+}
+.explorer__files__grid{
+    width: 100%;
+    height: min-content;
+    padding: 10px;
+    justify-items: center;
+    grid-template-rows: repeat(auto-fit, min-content);
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-gap: 2px;
+    display: grid;
+    box-sizing: border-box;
+}
+.explorer__file{
+    width: 100px;
+    height: min-content;
+    min-height: 125px;
+    padding: 10px 5px 7px 5px;
+    display: block;
+    user-select: none;
+    box-sizing: border-box;
+}
+.explorer__file > img{
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+    -webkit-user-drag: none;
+}
+.explorer__file > p{
+    color: #fff;
+    margin: 5px 0 0;
+    font-size: 12px;
+    line-height: 1.35em;
+    text-align: center;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    max-height: calc(1.35em * 4);
+}
+.explorer__file:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.explorer__file.selected{
+    background-color: rgba(255, 255, 255, 0.4);
 }

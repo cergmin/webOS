@@ -12,4 +12,4 @@ There are 2 commands:
 ``` npm run dev ``` to run webpck-dev-server
 
 ## Demo: https://cergmin.github.io/webOS/
-![webOS](https://i.imgur.com/XNWwSbr.png)
+![webOS](https://i.imgur.com/f8vjuw3.png)
