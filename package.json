@@ -19,7 +19,7 @@
   "homepage": "https://github.com/cergmin/webOS#readme",
   "dependencies": {
     "fluent-reveal-effect": "^1.1.1",
-    "jquery": "^3.4.1"
+    "jquery": "^3.5.0"
   },
   "devDependencies": {
     "path": "^0.12.7",
